@@ -1,0 +1,110 @@
+/*动画样式定义*/
+@-webkit-keyframes rock/*抖动的效果*/
+{
+	0%{ transform:rotate(0);}
+	10%{transform:rotate(3deg);}
+	20%{transform:rotate(-3deg);}
+	30%{transform:rotate(2deg);}
+	40%{transform:rotate(-2deg);}
+	50%{transform:rotate(1deg);}
+	60%{transform:rotate(-1deg);}
+	70%{transform:rotate(0);}
+	100%{transform:rotate(0);}
+}
+	*{
+	padding:0;
+	margin: 0;
+	}
+	body{
+		background: #000;
+		min-width: 1200px;
+		min-height: 600px;
+		-webkit-font-smoothing:antialiased;
+		font-family: 'WenQuanYi Micro Hei',SimSun, ans-serif;
+	}
+	.main{width: 1200px;height: 600px;background: #000 url(img/bg.jpg); position: absolute;top:50%;left: 50%;margin-left: -600px;margin-top: -300px;overflow: hidden;}
+	/*粽子盒子，所有原件都在这里*/
+	.c_zong_box{width: 312px;height: 305px;position:absolute;left: 700px;top:184px;}
+	/*粽子*/
+	.c_zongzi{width: 312px;height: 305px;background: url(img/zz.png); transition:all 1s;}
+	.c_zongzi_out{ opacity: 0;transform:scale(.5);}
+	/*绳子一*/
+	.c_shengzi1{width: 218px;height: 180px;background: url(img/line_1.png);top: 120px;left: 10px; position: absolute;z-index: 999;cursor: pointer;}
+	/*绳子2*/
+	.c_shengzi2{width: 219px;height: 159px;background: url(img/line_2.png);top: 158px;left: 10px; position: absolute;}
+	/*绳子3*/
+	.c_shengzi3{width: 264px;height: 117px;background: url(img/line_3.png);top: 220px;left: 10px; position: absolute;}
+	/*绳子4*/
+	.c_shengzi4{width: 288px;height: 56px;background: url(img/line_4.png);top: 290px;left: 10px; position: absolute;}
+	.c_shengzi0{display: none;}
+	/*粽子肉*/
+	.c_zongzirou{width: 282px;height: 206px;background: url(img/zzr_1.png);top: 33px;    left: 46px;
+		position: absolute; background-size: 282px 206px;z-index: 101;opacity: 0;transition: all 1s; transform:scale(.8);-webkit-transform-origin: :top center; -moz-transform-origin:top center; transform-origin:top center; }
+	.c_zongzirou_in{opacity: 1;transform:scale(1);}
+	/*左叶右叶底叶*/
+	.c_zuoye{width: 147px;height: 266px;background: url(img/leaf_left.png);top: -30px;left: 0px; position: absolute; z-index: 1; opacity: 0;transition: all 1s;-webkit-transform-origin: :left bottom; -moz-transform-origin:left bottom;transform-origin: :left bottom;}
+	.c_zuoye_in{opacity: 1; transform:rotate(-5deg);}
+	.c_zuoye_out{opacity: 0;transform:rotate(-15deg);}
+	.c_youye{width: 318px;height: 388px;background: url(img/leaf_right.png);top: -60px;left: 80px; position: absolute; z-index: 101;opacity: 0;transition: all 1s;-webkit-transform-origin: :left bottom; -moz-transform-origin:left bottom;transform-origin: :left bottom; transform:scale(.8);}
+	.c_youye_in{opacity: 1; transform:rotate(5deg);}
+	.c_youye_out{opacity: 0;transform:rotate(15deg);}
+	.c_diye{width: 618px;height: 464px;background: url(img/leaf_expand.png);top: -59px;    left: -123px;    position: absolute;    z-index: 99;opacity: 0;transition: all 1s;}
+	.c_diye_in{
+		opacity: 1;
+	}
+	/*吉祥如意文字*/
+	.c_t_1{width: 180px;height: 100px;background: url(img/t_jixiang.png);top: 50%;left: 50%; position: absolute; z-index: 200;margin-left: -59px;margin-top: -50px; transform:scale(.8); transform-origin:center center;opacity: 0;transition: all 1s;}
+	.c_t_2{width: 180px;height: 100px;background: url(img/t_ruyi.png);top: 50%;left: 50%; position: absolute; z-index: 200;margin-left: -90px;margin-top: -50px; transform:scale(.8); transform-origin:center center;opacity: 0;transition: all 1s;}
+	.ct_in{opacity: 1;}
+
+	/*右边文字部分*/
+	.text{position: absolute;width:400px;height: 370px;left:180px;top:140px;font-size: 14px;line-height: 20px;color: #333;}
+	/*.text_in{ opacity: 1;display: block;}*/
+	.text .caption{width: 400px;height: 240px;background: url('img/caption.png');margin-left: 40px;opacity: 0;transition: all 1s ;}
+	.text .to{ width: 400px;margin-top:10px; margin-left: 40px;opacity: 0;transition: all 1s .5s;}
+	.text .msg{ width: 400px;margin-top:10px; margin-left: 40px;opacity: 0;transition: all 1s 1s;}
+	.text .from{ width: 400px;margin-top:10px; margin-left: 40px; text-align: right;opacity: 0;transition: all 1s 1.5s;}
+	.text_in .caption,
+	.text_in .to,
+	.text_in .msg,
+	.text_in .from{ opacity: 1;margin-left: 0}
+
+	.c_zong_box_rock{ -webkit-animation:rock 2s infinite;}
+	.text .caption{ -webkit-animation:rock 4s infinite;}
+
+	/*粽子肉的视角（旋转）*/
+	.c_zongzirou_view_1{
+		background-image: url(img/zzr_1.png);
+		transform:rotateY(180deg);
+		transition:all 0;
+	}
+	.c_zongzirou_view_2{
+		transition:all 0;
+		background-image: url(img/zzr_2.png);
+	}
+	.c_zongzirou_view_3{
+		transition:all 0;
+		background-image: url(img/zzr_3.png);
+	}
+	.c_zongzirou_view_4{
+		transition:all 0;
+		background-image: url(img/zzr_4.png);
+	}
+	.c_zongzirou_view_0{
+		background-image: url(img/zzr_1.png);
+		transform:rotateY(360deg);
+		-webkit-transform:rotateY(360deg);
+		transition:all 0;
+	}
+	/*文字的视角（旋转）吉祥如意*/
+	/*.c_t_view_1{transform:scale(.8) rotateY(30deg) translate(-50px, 0) rotate(8deg);}*/
+	.c_t_view_2{transform:scale(.8) rotateY(30deg) translate(-20px,0px) rotate(8deg);transition:all 0;}
+	.c_t_mirror_2{transform:scale(.7) rotateY(70deg) translate(400px,-15px) rotate(-8deg);transition:all 0;}
+
+	.c_t_view_3{transform:scale(.75) rotateY(49deg) translate(-119px,-10px) rotate(15deg);transition:all 0;}
+	.c_t_mirror_3{transform:scale(.75) rotateY(49deg) translate(185px,-14px) rotate(-15deg);transition:all 0;}
+
+	.c_t_view_4{transform:scale(.6) rotateY(50deg) translate(-128px,10px) rotate(24deg);transition:all 0;}
+	.c_t_mirror_4{transform:scale(.8) rotateY(30deg) translate(119px,10px) rotate(-5deg);transition:all 0;}
+	.c_t_view_0{/*z-index: 0;display: none;*/ transform:scale(.8); transition:all 0;}
+	.c_t_mirror_0{ display: none;transition:all 0;}
